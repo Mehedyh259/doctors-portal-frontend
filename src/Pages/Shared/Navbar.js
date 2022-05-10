@@ -11,7 +11,7 @@ const Navbar = () => {
         <li><Link to='/login'>Login</Link></li>
     </>
     return (
-        <div className="navbar bg-base-100 px-5 lg:px-10">
+        <div style={{ zIndex: '999' }} className="navbar bg-white px-5 lg:px-10 sticky top-0">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex="0" className="btn btn-ghost lg:hidden">

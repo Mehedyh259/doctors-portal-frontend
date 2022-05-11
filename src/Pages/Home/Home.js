@@ -1,22 +1,24 @@
 import React from 'react';
-import Appointment from './Appointment';
+import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import Contact from './Contact';
 import Info from './Info';
 import ServiceHero from './ServiceHero';
 import Services from './Services';
 import Testimonials from './Testimonials';
+import MakeAppointment from './MakeAppointment';
 
 const Home = () => {
     return (
-        <div className=' px-7 lg:px-12'>
+        <div >
             <Banner />
             <Info />
             <Services />
             <ServiceHero />
-            <Appointment />
+            <MakeAppointment />
             <Testimonials />
             <Contact />
+            <Footer />
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import doctor from '../../assets/images/doctor.png';
 import appointment from '../../assets/images/appointment.png';
 import MainButton from '../Shared/MainButton';
-const Appointment = () => {
+const MakeAppointment = () => {
     return (
         <section className=' my-28 flex justify-center items-center' style={{
             background: `url(${appointment})`
@@ -23,4 +23,4 @@ const Appointment = () => {
     );
 };
 
-export default Appointment;
+export default MakeAppointment;

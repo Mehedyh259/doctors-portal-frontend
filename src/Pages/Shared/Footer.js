@@ -8,7 +8,7 @@ const Footer = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
-        }} className="px-12">
+        }} className="px-12 py-5">
             <div className="footer">
                 <div>
                     <span className="footer-title">Services</span>
@@ -32,7 +32,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='text-center my-10'>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved.</p>
             </div>
         </footer>
     );

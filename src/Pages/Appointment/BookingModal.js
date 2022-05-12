@@ -3,6 +3,7 @@ import React from 'react';
 
 const BookingModal = ({ date, treatment, setTreatment }) => {
     const { _id, name, slots } = treatment;
+    let key = 1;
 
     const handleBooking = (event) => {
         event.preventDefault();
@@ -16,7 +17,7 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
-                    <label for="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-xl">Booking For: <span className='text-secondary'>{name}</span></h3>
 
                     <form onSubmit={handleBooking} className='my-4 grid grid-cols-1 gap-2 justify-items-center'>
@@ -24,7 +25,7 @@ const BookingModal = ({ date, treatment, setTreatment }) => {
 
                         <select name='slot' className="select select-bordered w-full max-w-md">
                             {
-                                slots.map(slot => <option value={slot}>{slot}</option>)
+                                slots.map(slot => <option key={key++} value={slot}>{slot}</option>)
                             }
                         </select>
 

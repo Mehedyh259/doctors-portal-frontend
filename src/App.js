@@ -9,6 +9,10 @@ import SignUp from './Pages/Login/SignUp';
 import Navbar from './Pages/Shared/Navbar';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyAppointments from './Pages/Dashboard/MyAppointments';
+import MyReview from './Pages/Dashboard/MyReview';
+import MyHistory from './Pages/Dashboard/MyHistory';
 
 function App() {
   return (
@@ -25,6 +29,13 @@ function App() {
             <Appointment />
           </RequireAuth>
         } />
+
+        {/* nested route */}
+        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<MyAppointments />} />
+          <Route path='review' element={<MyReview />} />
+          <Route path='history' element={<MyHistory />} />
+        </Route>
 
 
 

@@ -9,7 +9,8 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
 
     const logOut = () => {
-        signOut(auth)
+        signOut(auth);
+        localStorage.removeItem('accessToken')
     }
 
     const menuItems = <>
@@ -23,13 +24,14 @@ const Navbar = () => {
 
         {
             user ?
-                <div class="ml-2 dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                        <div class="w-10 rounded-full">
+                <div className="ml-2 dropdown dropdown-end">
+                    <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
                             <img alt='profile' src="https://cdn-icons-png.flaticon.com/512/149/149071.png" />
                         </div>
+                        {/* <span>{user.displayName}</span> */}
                     </label>
-                    <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link className='w-full text-center block' to='/dashboard'>Dashboard</Link></li>
                         <li><button onClick={logOut} className='btn btn-ghost capitalize w-full text-center'>Sign Out</button></li>
                     </ul>
@@ -61,7 +63,7 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end lg:hidden">
-                <label tabIndex={'1'} for="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+                <label tabIndex={'1'} htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                 </label>
 

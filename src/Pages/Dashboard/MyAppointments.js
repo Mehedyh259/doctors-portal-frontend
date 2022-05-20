@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import auth from '../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const MyAppointments = () => {
@@ -19,7 +19,6 @@ const MyAppointments = () => {
                 }
             })
                 .then(res => {
-                    console.log(res);
 
                     if (res.status === 401 || res.status === 403) {
                         signOut(auth);
@@ -48,6 +47,7 @@ const MyAppointments = () => {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Treatment</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +58,22 @@ const MyAppointments = () => {
                                 <td>{appointment.date}</td>
                                 <td>{appointment.slot}</td>
                                 <td>{appointment.treatment}</td>
+                                <td>
+                                    {(appointment.price && !appointment.paid) && <Link to={`/dashboard/payment/${appointment._id}`} >
+                                        <button className='btn btn-xs btn-success'>
+                                            Pay
+                                        </button>
+                                    </Link>}
+                                    {
+                                        (appointment.price && appointment.paid) && <div>
+                                            <p className="text-success font-bold">Paid</p>
+                                            <p>TransactionID: <span className="text-success">
+                                                {appointment.transactionId}
+                                            </span></p>
+                                        </div>
+                                    }
+
+                                </td>
 
                             </tr>)
                         }

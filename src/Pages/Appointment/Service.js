@@ -2,7 +2,7 @@ import React from 'react';
 import MainButton from '../Shared/MainButton';
 
 const Service = ({ service, setTreatment }) => {
-    const { name, slots } = service;
+    const { name, slots, price } = service;
     return (
         <div className="card w-full justify-center bg-base-100 shadow-xl">
             <div className="card-body text-center">
@@ -18,6 +18,7 @@ const Service = ({ service, setTreatment }) => {
                 <p>
                     {slots.length ? slots.length : "No "} {slots.length > 1 ? "Spaces " : "Space "} Available
                 </p>
+                <p><small className='font-bold'>Price: ${price}</small></p>
                 <div className="card-actions justify-center">
                     <label
                         htmlFor="booking-modal"
